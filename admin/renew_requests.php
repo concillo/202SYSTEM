@@ -120,15 +120,19 @@ if ($_SESSION['RollNo']) {
                                   </thead>
                                   <tbody>
                                     <?php
-                            $sql="select * from LMS.record,LMS.book,LMS.renew where renew.BookId=book.BookId and renew.RollNo=record.RollNo and renew.BookId=record.BookId ORDER BY RollNo ASC";
-                            $result=$conn->query($sql);
-                            while($row=$result->fetch_assoc())
-                            {
-                                $bookid=$row['BookId'];
-                                $rollno=$row['RollNo'];
-                                $name=$row['Title'];
-                                $renewals=$row['Renewals_left'];
-                            
+                           $sql = "SELECT * FROM LMS.record
+                           INNER JOIN LMS.book ON record.BookId = book.BookId
+                           INNER JOIN LMS.renew ON renew.BookId = book.BookId AND renew.RollNo = record.RollNo
+                           ORDER BY record.RollNo ASC";
+                   
+                   $result = $conn->query($sql);
+                   
+                   while ($row = $result->fetch_assoc()) {
+                       $bookid = $row['BookId'];
+                       $rollno = $row['RollNo'];
+                       $name = $row['Title'];
+                       $renewals = $row['Renewals_left'];
+                   
                            
                             ?>
                                     <tr>

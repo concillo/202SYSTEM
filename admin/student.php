@@ -123,13 +123,12 @@ if ($_SESSION['RollNo']) {
 
 
 
-                                    if(isset($_POST['submit']))
-                                        {$s=$_POST['title'];
-                                            $sql =   "SELECT * FROM LMS.user WHERE (RollNo='$s' OR Name LIKE '%$s%') AND RollNo<>'ADMIN' ORDER BY RollNo ASC";
-                                        }
-                                    else
-                                    $sql = "SELECT * FROM LMS.user WHERE RollNo<>'ADMIN' ORDER BY RollNo ASC";
-
+if (isset($_POST['submit'])) {
+    $searchTerm = $_POST['title'];
+    $sql = "SELECT * FROM LMS.user WHERE (RollNo='$searchTerm' OR Name LIKE '%$searchTerm%') AND RollNo<>'ADMIN' ORDER BY SUBSTRING(Name, 1, 1) ASC, RollNo ASC";
+} else {
+    $sql = "SELECT * FROM LMS.user WHERE RollNo<>'ADMIN' ORDER BY SUBSTRING(Name, 1, 1) ASC, RollNo ASC";
+}
                                     $result=$conn->query($sql);
                                     $rowcount=mysqli_num_rows($result);
 
