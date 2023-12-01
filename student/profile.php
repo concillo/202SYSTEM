@@ -13,7 +13,7 @@ if ($_SESSION['RollNo']) {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT LIBRARY MANAGEMENT SYSTEM</title>
-    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    <a href="index.php" class="btn btn-secondary">Back</a>
     <style>
 
         body {font-family: 'Roboto', sans-serif;

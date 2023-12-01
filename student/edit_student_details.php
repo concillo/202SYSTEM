@@ -14,12 +14,16 @@ require('dbconn.php');
        
     </head>
     <body>
+    <a href="profile.php" class="btn btn-secondary">Back</a>
     <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f0f5f9; /* Light pastel blue background */
-        padding-top: 60px;
-    }
+    body {font-family: 'Roboto', sans-serif;
+            background: url('images/book.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+            padding:20px;
+        }
+
 
 
     .module {
@@ -46,6 +50,27 @@ require('dbconn.php');
         width: 150px;
     }
 
+    .btn {
+            padding: 10px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #5bc0de;
+            color: #fff;
+            border: 1px solid #46b8da;
+            border-radius: 4px;
+            
+        }
+
+        .btn:hover {
+            background-color: #46b8da;
+        }
+        .span9 {
+       
+       margin-top:10px;
+       margin-bottom:100px;
+       margin-right:100px;
+       margin-left:100px;
+   }
     .footer {
         text-align: center;
         padding: 30px;
@@ -195,7 +220,7 @@ if (isset($_POST['submit'])) {
 
 if($conn->query($sql1) === TRUE){
 echo "<script type='text/javascript'>alert('Success')</script>";
-header( "Refresh:0.01; url=index.php", true, 303);
+
 }
 else
 {//echo $conn->error;
