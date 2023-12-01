@@ -1,29 +1,7 @@
 <?php
 
 require('dbconn.php');
-//error_reporting(~E_NOTICE);
-function start_session()
-{
-	$_SESSION['activity_logs']='';
-	session_start();
-if(empty($_SESSION['activity_logs']))
-{
-	header("Location:index.php");
-	exit();
-	}
-}
-echo start_session();
-function db_query()
-{
-	global $conn;
-$stmt=$conn->prepare( "SELECT * FROM activity_logs where user_id=:uid") ;
-if($stmt->execute(['uid'=>$_SESSION['activity_logs']]))
-{
-	$row=$stmt->fetch(PDO::FETCH_ASSOC);
-	$count=$stmt->rowcount();
-	       }
-	}
-	echo db_query();
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
