@@ -19,7 +19,7 @@ if ($_SESSION['RollNo']) {
         <style>
 
     body {font-family: 'Roboto', sans-serif;
-        background: url('images/renew.png') no-repeat;
+        background: url('../images/color.jpg') no-repeat;
         background-size: cover;
         background-position: center;
        padding:50px;
@@ -120,8 +120,12 @@ if ($_SESSION['RollNo']) {
                                   </thead>
                                   <tbody>
                                     <?php
-                            $sql="select * from LMS.record,LMS.book,LMS.renew where renew.BookId=book.BookId and renew.RollNo=record.RollNo and renew.BookId=record.BookId ORDER BY RollNo ASC";
-                            $result=$conn->query($sql);
+                           $sql = "SELECT * FROM LMS.record, LMS.book, LMS.renew 
+                           WHERE renew.BookId = book.BookId 
+                               AND renew.RollNo = record.RollNo 
+                               AND renew.BookId = record.BookId 
+                           ORDER BY renew.RenewalTimestamp DESC";
+                    $result=$conn->query($sql);
                             while($row=$result->fetch_assoc())
                             {
                                 $bookid=$row['BookId'];
