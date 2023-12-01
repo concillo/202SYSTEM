@@ -67,6 +67,7 @@ require('dbconn.php');
 
 
                                 <?php
+    /* RIZZA MAE LEONOR - TASK*/                             
                                 $rollno = $_SESSION['RollNo'];
                                 $sql="select * from LMS.user where RollNo='$rollno'";
                                 $result=$conn->query($sql);

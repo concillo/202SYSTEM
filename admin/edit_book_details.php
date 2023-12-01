@@ -115,6 +115,7 @@ if ($_SESSION['RollNo']) {
                             <div class="module-body">
 
                                 <?php
+     /* RIZZA MAE LEONOR - TASK*/
                                     $bookid = $_GET['id'];
                                     $sql = "select * from LMS.book where Bookid='$bookid'";
                                     $result=$conn->query($sql);
