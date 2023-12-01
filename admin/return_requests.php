@@ -19,6 +19,7 @@ if ($_SESSION['RollNo']) {
         <style>
 
 body {font-family: 'Roboto', sans-serif;
+        
         background: url('images/return.png') no-repeat;
         background-size: cover;
         background-position: center;

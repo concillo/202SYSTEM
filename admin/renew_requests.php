@@ -18,8 +18,9 @@ if ($_SESSION['RollNo']) {
     <body>
         <style>
 
-    body {font-family: 'Roboto', sans-serif;
-        background: url('images/renew.png') no-repeat;
+
+        background: url('../images/colors.jpg') no-repeat;
+
         background-size: cover;
         background-position: center;
        padding:50px;
