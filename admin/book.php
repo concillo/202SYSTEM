@@ -119,13 +119,14 @@ if ($_SESSION['RollNo']) {
     <?php
             if(isset($_POST['submit']))
                 {$s=$_POST['title'];
-                $sql="SELECT * FROM LMS.book WHERE BookId='$s' OR Title LIKE '%$s%' ORDER BY BookId ASC";
+                    $sql = "SELECT * FROM LMS.book ORDER BY SUBSTRING(Title, 1, 1) ASC, Title ASC";
+
                      }
                 else
-                    $sql="SELECT * FROM LMS.book ORDER BY BookId ASC";
-
-                        $result=$conn->query($sql);
-                            $rowcount=mysqli_num_rows($result);
+                $sql = "SELECT * FROM LMS.book ORDER BY SUBSTRING(Title, 1, 1) ASC, Title ASC";
+                $result = $conn->query($sql);
+                $rowcount = mysqli_num_rows($result);
+                
 
             if(!($rowcount))
                 echo "<br><center><h2><b><i>No Results</i></b></h2></center>";
