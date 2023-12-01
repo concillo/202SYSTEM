@@ -13,7 +13,7 @@ if ($_SESSION['RollNo']) {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT LIBRARY MANAGEMENT SYSTEM</title>
-    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+    <a href="index.php" class="btn btn-secondary">Back</a>
     <style>
 
         body {font-family: 'Roboto', sans-serif;
@@ -112,9 +112,9 @@ if ($_SESSION['RollNo']) {
             $name = $row['Name'];
             $email = $row['EmailId'];
             $mobno = $row['MobNo'];
-            $profilePicture = $row['pp']; // Assuming 'pp' is the column name for the profile picture in your database
+            $filename = $row['pp']; // Assuming 'pp' is the column name for the profile picture in your database
         ?>
-            <img src="upload/<?php echo $profilePicture; ?>" class="img-fluid rounded-circle">
+            <img src="../upload/<?php echo $filename; ?>" class="img-fluid rounded-circle" style = "width: 250px; height: 250px; border-radius: 100%;">
             <div class="card-body">
                 <i>
                     <h1 class="card-title"><?php echo $name; ?></h1>
