@@ -123,15 +123,18 @@ if ($_SESSION['RollNo']) {
                                   </thead>
                                   <tbody>
                                     <?php
-                            $sql="select * from LMS.record,LMS.book where Date_of_Issue is NULL and record.BookId=book.BookId order by Time";
-                            $result=$conn->query($sql);
-                            while($row=$result->fetch_assoc())
-                            {
-                                $bookid=$row['BookId'];
-                                $rollno=$row['RollNo'];
-                                $name=$row['Title'];
-                                $avail=$row['Availability'];
-                            
+                           $sql = "SELECT * FROM LMS.record 
+                           INNER JOIN LMS.book ON record.BookId = book.BookId 
+                           WHERE Date_of_Issue IS NULL 
+                           ORDER BY Time ASC";
+                   
+                   $result = $conn->query($sql);
+                   
+                   while ($row = $result->fetch_assoc()) {
+                       $bookid = $row['BookId'];
+                       $rollno = $row['RollNo'];
+                       $name = $row['Title'];
+                       $avail = $row['Availability'];
                                 
                             ?>
                                     <tr>

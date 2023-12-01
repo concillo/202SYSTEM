@@ -121,16 +121,20 @@ body {font-family: 'Roboto', sans-serif;
                                   </thead>
                                   <tbody>
                                     <?php
-                            $sql="select return.BookId,return.RollNo,Title,datediff(curdate(),Due_Date) as x from LMS.return,LMS.book,LMS.record where return.BookId=book.BookId and return.BookId=record.BookId and return.RollNo=record.RollNo ORDER BY RollNo ASC";
-                            $result=$conn->query($sql);
-                            while($row=$result->fetch_assoc())
-                            {
-                                $bookid=$row['BookId'];
-                                $rollno=$row['RollNo'];
-                                $name=$row['Title'];
-                                $dues=$row['x'];
-                                
-                            
+                          $sql = "SELECT return.BookId, return.RollNo, Title, DATEDIFF(CURDATE(), Due_Date) AS x 
+                          FROM LMS.return
+                          INNER JOIN LMS.book ON return.BookId = book.BookId
+                          INNER JOIN LMS.record ON return.BookId = record.BookId AND return.RollNo = record.RollNo
+                          ORDER BY return.RollNo ASC";
+                  
+                  $result = $conn->query($sql);
+                  
+                  while ($row = $result->fetch_assoc()) {
+                      $bookid = $row['BookId'];
+                      $rollno = $row['RollNo'];
+                      $name = $row['Title'];
+                      $dues = $row['x'];
+                  
                            
                             ?>
                                     <tr>

@@ -1,29 +1,7 @@
 <?php
 
 require('dbconn.php');
-//error_reporting(~E_NOTICE);
-function start_session()
-{
-	$_SESSION['activity_logs']='';
-	session_start();
-if(empty($_SESSION['activity_logs']))
-{
-	header("Location:index.php");
-	exit();
-	}
-}
-echo start_session();
-function db_query()
-{
-	global $conn;
-$stmt=$conn->prepare( "SELECT * FROM activity_logs where user_id=:uid") ;
-if($stmt->execute(['uid'=>$_SESSION['activity_logs']]))
-{
-	$row=$stmt->fetch(PDO::FETCH_ASSOC);
-	$count=$stmt->rowcount();
-	       }
-	}
-	echo db_query();
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,10 +10,13 @@ if($stmt->execute(['uid'=>$_SESSION['activity_logs']]))
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+
 <style>
+	
 body{
     background:#F6F6F6;   
 }
+/*
 #ww{
 position:relative;
 width:1400px;
@@ -56,7 +37,7 @@ top:190px;
 height:200px;
 }
 
-	/*.avatar {
+	.avatar {
     vertical-align: middle;
     width: 50px;
     height: 50px;
@@ -115,7 +96,7 @@ float:left;
 top:10px;
 left:1px;
 }
-*/
+
 #aside{
 position:relative;
 background-color:#FFF;
@@ -130,7 +111,7 @@ top:100px;
 left:1px;
 border-radius:5px;
 box-shadow: 0 5px 10px 0 rgba(1, 1, 1, 0.2);
-}
+}*/
 .avatar
 {
 	position:relative;
@@ -144,6 +125,7 @@ box-shadow: 0 5px 10px 0 rgba(1, 1, 1, 0.2);
 	right:130px;
 	}
 </style>
+
 </head>
 <body>  
 <nav class="navbar navbar-default" role="navigation">
@@ -179,7 +161,7 @@ box-shadow: 0 5px 10px 0 rgba(1, 1, 1, 0.2);
 			<div class="panel panel-default">
 			<div class="panel-body">
 			<?php
-			$id=$_SESSION['user'];
+			$id=$_SESSION['activity_logs'];
 	$query = $conn->query("SELECT * FROM activity_logs inner join activity on activity_logs.user_id=activity.user_id where activity_logs.user_id='$id'");
 	while($roww = $query->fetch())
 	{
@@ -203,8 +185,8 @@ echo 'You last login was &nbsp;'.date("d/m/y H:i:sA",strtotime($roww['time_loged
 			<div class="panel panel-default">
 			<div class="panel-body">
 			<?php
-			/*$id=$_SESSION['user'];
-	$query = $conn->query("SELECT * FROM users inner join activity on users.user_id=activity.user_id where users.user_id='$id'");//left join profile on users.user_id=profile.user_id  ORDER BY post_id DESC");
+			$id=$_SESSION['activity_logs'];
+	$query = $conn->query("SELECT * FROM activity_logs inner join activity on activity_logs.user_id=activity.user_id where activity_logs.user_id='$id'");//left join profile on users.user_id=profile.user_id  ORDER BY post_id DESC");
 	while($roww = $query->fetch())
 	{
 	$user_id = $roww['user_id'];
@@ -218,10 +200,10 @@ echo 'You last login was &nbsp;'.date("d/m/y H:i:sA",strtotime($roww['time_loged
 ?>
 <?php
 	}
-	*/
-$stmt=$conn->prepare( "SELECT * FROM users where user_id=:uid") ;
+
+$stmt=$conn->prepare( "SELECT * FROM  where user_id=:uid") ;
 $stmt->execute(array
-('uid'=>$_SESSION['user'])
+('uid'=>$_SESSION['activity_logs'])
 );
 $urow=$stmt->fetch(PDO::FETCH_ASSOC);
 $count=$stmt->rowcount();

@@ -121,15 +121,26 @@ if ($_SESSION['RollNo']) {
                                     </form>
                                     <br>
                                     <?php
-                                    $rollno = $_SESSION['RollNo'];
-                                    if(isset($_POST['submit']))
-                                        {$s=$_POST['title'];
-                                            $sql="SELECT * FROM LMS.record, LMS.book WHERE RollNo = '$rollno' AND Date_of_Issue IS NOT NULL AND Date_of_Return IS NULL AND book.Bookid = record.BookId AND (record.BookId = '$s' OR Title LIKE '%$s%') ORDER BY Date_of_Issue ASC";
+                                $rollno = $_SESSION['RollNo'];
 
-                                        }
-                                    else
-                                        $sql="SELECT * FROM LMS.record, LMS.book WHERE RollNo = '$rollno' AND Date_of_Issue IS NOT NULL AND Date_of_Return IS NULL AND book.Bookid = record.BookId ORDER BY Date_of_Issue ASC";
-
+                                if (isset($_POST['submit'])) {
+                                    $s = $_POST['title'];
+                                    $sql = "SELECT * FROM LMS.record, LMS.book 
+                                            WHERE RollNo = '$rollno' 
+                                                AND Date_of_Issue IS NOT NULL 
+                                                AND Date_of_Return IS NULL 
+                                                AND book.BookId = record.BookId 
+                                                AND (record.BookId = '$s' OR Title LIKE '%$s%') 
+                                            ORDER BY Date_of_Issue ASC";
+                                } else {
+                                    $sql = "SELECT * FROM LMS.record, LMS.book 
+                                            WHERE RollNo = '$rollno' 
+                                                AND Date_of_Issue IS NOT NULL 
+                                                AND Date_of_Return IS NULL 
+                                                AND book.BookId = record.BookId 
+                                            ORDER BY Date_of_Issue ASC";
+                                }
+                                
                                     $result=$conn->query($sql);
                                     $rowcount=mysqli_num_rows($result);
 
