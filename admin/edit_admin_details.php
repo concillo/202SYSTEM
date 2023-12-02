@@ -80,6 +80,7 @@ if ($_SESSION['RollNo']) {
         </div>
         <div class="module-body">
             <?php 
+            /* RIZZA MAE LEONOR - TASK*/
             $rollno = $_SESSION['RollNo'];
             $sql = "SELECT * FROM LMS.user WHERE RollNo='$rollno'";
             $result = $conn->query($sql);
@@ -181,8 +182,6 @@ if(isset($_POST['submit']))
     $email=$_POST['EmailId'];
     $mobno=$_POST['MobNo'];
     $pswd=$_POST['Password'];
-
-/* RIZZA MAE LEONOR - TASK*/
 
     $targetDirectory = "../upload/";
     $targetFile = $targetDirectory . basename($_FILES["pp"]["name"]);
