@@ -182,7 +182,7 @@ if(isset($_POST['submit']))
     $mobno=$_POST['MobNo'];
     $pswd=$_POST['Password'];
 
-
+/* RIZZA MAE LEONOR - TASK*/
 
     $targetDirectory = "../upload/";
     $targetFile = $targetDirectory . basename($_FILES["pp"]["name"]);
