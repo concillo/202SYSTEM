@@ -12,7 +12,7 @@ if ($_SESSION['RollNo']) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>IT LIBRARY MANAGEMENT SYSTEM</title>
+        <title>LIBRARY MANAGEMENT SYSTEM</title>
         <a href="index.php" class="btn btn-secondary">Back</a>
    </head>
     <body>
@@ -20,100 +20,102 @@ if ($_SESSION['RollNo']) {
     <style>
    
 
-   body {font-family: 'Roboto', sans-serif;
+   body {
 
-        background: url('images/purple.jpg') no-repeat;
+background: url('images/book.jpg') no-repeat;
+background-size: cover;
+background-position: center;
+padding:8px;
+}
 
-        background-size: cover;
-        background-position: center;
-       padding:50px;
-    }
 
-    .wrapper {
-        display: flex;
-    }
+.span9 {
+margin-top:30px;
+margin-bottom:30px;
+margin-right:100px;
+margin-left:100px;
+}
+.table {
+width: 100%;
+    border-collapse: collapse;
+    margin-top: 2px;
+    overflow-x: auto;
+  margin-top:30px;
+  padding:50px;
+}
 
- 
+.table th,
+.table td {
+    border: 1px solid #5cb85c;
+    padding: 12px;
+    text-align: left;
+    border-color: black
+}
 
-    .content {
-        flex-grow: 1;
-        padding: 20px;
-    }
-    .table {
-        width: 100%;
-            border-collapse: collapse;
-            margin-top: 2px;
-            overflow-x: auto;
-          margin-top:30px;
-          padding:50px;
-        }
+.table th {
+    background-color:lightblue;
+    background-size: cover;
+    background-position: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align:center;
+}
 
-        .table th,
-        .table td {
-            border: 1px solid #5cb85c;
-            padding: 12px;
-            text-align: left;
-        }
+.table tbody tr:nth-child(even) {
+    background-color: #d9edf7;
+}
 
-        .table th {
-            background-color: #5cb85c;
-            color: #fff;
-        }
+.table tbody tr:hover {
+    background-color: #bce8f1;
+}
+.btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #5bc0de;
+    color: #fff;
+    border: 1px solid #46b8da;
+    border-radius: 4px;
+    margin-right:50px;
+    margin-top:50px;
 
-        .table tbody tr:nth-child(even) {
-            background-color: #d9edf7;
-        }
-
-        .table tbody tr:hover {
-            background-color: #bce8f1;
-        }
-        .btn {
-            padding: 8px 12px;
-            font-size: 14px;
-            cursor: pointer;
-            background-color: #5bc0de;
-            color: #fff;
-            border: 1px solid #46b8da;
-            border-radius: 4px;
-            margin-right:50px;
-            margin-top:50px;
-        
-            
-
-        }
-
-        .btn:hover {
-            background-color: #46b8da;
-        }
-
-        .container {
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-    .header{
-        margin-top:50px;
-        
-    }
-        .footer{
-            text-align: center;
-            padding: 80px;
-            margin-top:100px;
-
-        }
     
-</style>
 
-                    <div class="span9">
+}
+
+.btn:hover {
+    background-color: #46b8da;
+}
+
+.container {
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+}
+.header{
+margin-top:50px;
+
+}
+.footer{
+    text-align: center;
+    padding: 80px;
+    margin-top:100px;
+
+}
+
+</style>
+<div class="span9">
                         <center>
                         <a href="issue_requests.php" class="btn btn-info">Issue Requests</a>
                         <a href="renew_requests.php" class="btn btn-info">Renew Request</a>
                         <a href="return_requests.php" class="btn btn-info">Return Requests</a>
                         </center>
-                        <h1><i>Issue Requests</i></h1>
-                        <table class="table" id = "tables">
+
+        <h1><i>Issue Requests</i></h1>
+
+<table class="table" id = "tables">
                                   <thead>
                                     <tr>
                                       <th>Roll Number</th>
@@ -123,7 +125,7 @@ if ($_SESSION['RollNo']) {
                                       <th></th>
                                     </tr>
                                   </thead>
-                                  <tbody>
+                <tbody>
                                     <?php
                            $sql = "SELECT * FROM LMS.record 
                            INNER JOIN LMS.book ON record.BookId = book.BookId 
@@ -161,22 +163,14 @@ if ($_SESSION['RollNo']) {
                 </div>
             </div>
             <!--/.container-->
+            <div class="footer">
+        <div class="container">
+            <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024 </b>All rights reserved.
         </div>
-<div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
-            </div>
-        </div>
-        
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
-      
+    </div>
+    
+    
+    
     </body>
 
 </html>

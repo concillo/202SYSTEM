@@ -55,7 +55,7 @@ if (isset($_POST['signup'])) {
 <html lang="en">
 
 <head>
-    <title>Document</title>
+    <title>LIBRARY MANAGEMENT SYSTEMt</title>
     <!-- Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -152,7 +152,7 @@ if (isset($_POST['signup'])) {
 
                 <select name="Category" id="Category">
                     <option value="Student">Student</option>
-                    <option value="Staff">Staff</option>
+                    
                 </select>
         </div>
 

@@ -12,11 +12,12 @@ if ($_SESSION['RollNo']) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
         <title>LIBRARY MANAGEMENT SYSTEM</title>
    </head>
     <body>
       
-                        <a href="profile.php" class="btn btn-secondary">Back</a>
+                        <a href="index.php" class="btn btn-secondary">Back</a>
                         <style>
      body {font-family: 'Roboto', sans-serif;
             background: url('images/book.jpg') no-repeat;
@@ -76,7 +77,7 @@ if ($_SESSION['RollNo']) {
         text-align: center;
         padding: 30px;
         background-color: #a7c0cd; /* Pastel blue footer background */
-        color: #ffffff;
+        color:darkgrey;
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -157,10 +158,11 @@ if ($_SESSION['RollNo']) {
                 
        
 <div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
-            </div>
+        <div class="container">
+            <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024 </b>All rights reserved.
         </div>
+    </div>
+    
         
         <!--/.wrapper-->
         <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -196,15 +198,20 @@ if (isset($_POST['submit'])) {
 
     // Rest of your code
 
-
-if($conn->query($sql1) === TRUE){
-echo "<script type='text/javascript'>alert('Success')</script>";
-
-}
-else
-{//echo $conn->error;
-echo "<script type='text/javascript'>alert('Error')</script>";
-}
+    if ($conn->query($sql1) === TRUE) {
+        echo '<script type="text/javascript"("Success")
+                $(document).ready(function(){
+                    $("#successModal").modal("show");
+                });
+              </script>';
+    } else {
+        // echo $conn->error;
+        echo '<script type="text/javascript"("Error")
+                $(document).ready(function(){
+                    $("#errorModal").modal("show");
+                });
+              </script>';
+    }
 }
 }
 ?>

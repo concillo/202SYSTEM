@@ -12,57 +12,68 @@ if ($_SESSION['RollNo']) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>IT LIBRARY MANAGEMENT SYSTEM</title>
+        <title>LIBRARY MANAGEMENT SYSTEM</title>
         <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
    </head>
     <body>
       
           
 <style>
-    body { 
+   .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #5bc0de;
+        color: #fff;
+        border: 1px solid #46b8da;
+        border-radius: 4px;
+        }
+
+    .btn:hover {
+        background-color: #46b8da;
+        }
+    body {
         font-family: 'Roboto', sans-serif;
         background: url('images/book.jpg') no-repeat;
         background-size: cover;
         background-position: center;
-        padding:20px;
+        padding:8px;
+     
     }
-  
 
     .content {
         flex-grow: 1;
-        padding: 30px;
-    }
-    .span9 {
-       
-       margin-top:10px;
-       margin-bottom:100px;
-       margin-right:500px;
-       margin-left:500px;
-       text-align:center;
-   }
+        padding: 20px;
 
-        .module {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+    }
+  
+    .module {
+    
+    border-collapse: collapse;
+    margin-top: 2px;
+    overflow-x: auto;
+    margin-top:30px;
+    margin-right: 200px;
+    margin-left:200px;
+        
         }
 
         .module-head {
-            background-color: #f2f2f2;
-            padding: 10px;
+            background-color:lightblue;
+            background-size: cover;
+            background-position: center;
+            padding: 15px;
             border-bottom: 1px solid #ddd;
             text-align:center;
-    }
-   
+        }
 
         .module-head h3 {
             margin: 0;
         }
 
         .module-body {
-            margin-top: 15px;
+            padding: 10px;
+            
         }
 
         .form-horizontal .control-group {
@@ -74,38 +85,39 @@ if ($_SESSION['RollNo']) {
             display: inline-block;
             font-weight: bold;
         }
+        
 
         .form-horizontal .controls {
-            margin-left: 170px;
+            margin-top:5px;
+            margin-left: 150px;
+        
         }
 
         .form-horizontal input.span8 {
             width: 30%;
+            height:35px;
+            background:lightgrey;
+            text-align:center;
         }
-
-        .btn {
-            padding: 10px 12px;
-            font-size: 14px;
-            cursor: pointer;
-            background-color: #5bc0de;
-            color: #fff;
-            border: 1px solid #46b8da;
+        .form-horizontal button {
+            background-color:blue;
+            color: white;
+            padding: 10px 10px;
+            border: none;
             border-radius: 4px;
-            
+            cursor: pointer;
+            margin-left: 85%;
         }
 
-        .btn:hover {
-            background-color: #46b8da;
+        .form-horizontal button:hover {
+            background-color: #45a049;
         }
-       
+        .footer{
+            text-align: center;
+         margin-top:300px;
+         color:darkgrey;
+        }
         
-     .container
-     {
-    text-align:center;
-    color:#black;
-   margin-top:400px;
-
-        }
 </style>
 
 
@@ -113,10 +125,10 @@ if ($_SESSION['RollNo']) {
                         <div class="content">
 
                         <div class="module">
-                            <div class="module-head">
+                            <div class="module-head" >
                                 <h3>Book Details</h3>
                             </div>
-                            <div class="module-body">
+                            <div class="module-body" size="   font-size: 10px;">
                         <?php
                             $x=$_GET['id'];
                             $sql="select * from LMS.book where BookId='$x'";
@@ -148,23 +160,15 @@ if ($_SESSION['RollNo']) {
                         
                            
                             ?>
-                            
+                            </div>
                             </div>                 
-<div class="bottom">
+<div class="footer">
             <div class="container">
-                <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
+                <b class="copyright">&copy; @copyright LMS by Concillo Group FDS @A.Y.2023-2024 </b>All rights reserved.
             </div>
         </div>
         
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
-      
+  
     </body>
 
 </html>

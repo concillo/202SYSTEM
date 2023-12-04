@@ -12,7 +12,7 @@ if ($_SESSION['RollNo']) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT LIBRARY MANAGEMENT SYSTEM</title>
+    <title>LIBRARY MANAGEMENT SYSTEM</title>
     <a href="index.php" class="btn btn-secondary">Back</a>
     <style>
 
@@ -102,31 +102,47 @@ if ($_SESSION['RollNo']) {
     <div class="span9">
     <center>
     <div class="card" style="width: 50%;">
-        <?php
-        $rollno = $_SESSION['RollNo'];
-        $sql = "SELECT * FROM LMS.user WHERE RollNo='$rollno'";
-        $result = $conn->query($sql);
+    <?php
+$rollno = $_SESSION['RollNo'];
+$sql = "SELECT * FROM LMS.user WHERE RollNo='$rollno'";
+$result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $name = $row['Name'];
-            $email = $row['EmailId'];
-            $mobno = $row['MobNo'];
-            $filename = $row['pp']; // Assuming 'pp' is the column name for the profile picture in your database
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $name = $row['Name'];
+    $email = $row['EmailId'];
+    $mobno = $row['MobNo'];
+    $filename = $row['pp']; // Assuming 'pp' is the column name for the profile picture in your database
+
+    // Check if the profile picture file exists
+    $profilePicturePath = "../upload/" . $filename;
+    if (file_exists($profilePicturePath)) {
+        // Display the profile picture
         ?>
-            <img src="../upload/<?php echo $filename; ?>" class="img-fluid rounded-circle" style = "width: 250px; height: 250px; border-radius: 100%;">
-            <div class="card-body">
-                <i>
-                    <h1 class="card-title"><?php echo $name; ?></h1>
-                    <p class="card-text"><b>Email ID:</b> <?php echo $email; ?></p>
-                    <p class="card-text"><b>Mobile number:</b> <?php echo $mobno; ?></p>
-                </i>
-            </div>
+        <img src="<?php echo $profilePicturePath; ?>" class="img-fluid rounded-circle" style="width: 250px; height: 250px; border-radius: 50%;">
         <?php
-        } else {
-            echo "User not found.";
-        }
+    } else {
+        // Display a default image or a placeholder if the profile picture file does not exist
         ?>
+        <img src="../upload/default.jpg" class="img-fluid rounded-circle" style="width: 250px; height: 250px; border-radius: 50%;">
+        <?php
+    }
+
+    // Display user details
+    ?>
+    <div class="card-body">
+        <i>
+            <h1 class="card-title"><?php echo $name; ?></h1>
+            <p class="card-text"><b>Email ID:</b> <?php echo $email; ?></p>
+            <p class="card-text"><b>Mobile number:</b> <?php echo $mobno; ?></p>
+        </i>
+    </div>
+    <?php
+} else {
+    echo "User not found.";
+}
+?>
+
     </div>
     <br>
     <a href="edit_admin_details.php" class="btn btn-primary">Edit Details</a>
@@ -136,18 +152,12 @@ if ($_SESSION['RollNo']) {
 
     <div class="footer">
         <div class="container">
-            <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
+            <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024 </b>All rights reserved.
         </div>
     </div>
+    
 
-    <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-    <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-    <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-    <script src="scripts/common.js" type="text/javascript"></script>
-
+  
 </body>
 
 </html>

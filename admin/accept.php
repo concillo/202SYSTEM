@@ -10,13 +10,14 @@ $row=$result->fetch_assoc();
 
 $category=$row['Category'];
 
-if($category == 'Student' || $category == 'Staff' )
+if($category == 'Student')
 {$sql1="update LMS.record set Date_of_Issue=curdate(),Due_Date=date_add(curdate(),interval 60 day),Renewals_left=1 where BookId='$bookid' and RollNo='$rollno'";
  
 if($conn->query($sql1) === TRUE)
 {$sql3="update LMS.book set Availability=Availability-1 where BookId='$bookid'";
  $result=$conn->query($sql3);
  $sql5="insert into LMS.message (RollNo,Msg,Date,Time) values ('$rollno','Your request for issue of BookId: $bookid  has been accepted',curdate(),curtime())";
+ 
  $result=$conn->query($sql5);
 echo "<script type='text/javascript'>alert('Success')</script>";
 header( "Refresh:0.01; url=issue_requests.php", true, 303);

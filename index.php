@@ -100,26 +100,29 @@ h1 {
 
 	<div class="container">
 
-		<div class="login">
-			<h2>Sign In</h2>
-			<form action="index.php" method="post">
-				<input type="text" Name="RollNo" placeholder="Student ID" required="">
-				<input type="password" Name="Password" placeholder="Password" required="">
-				<div class="send-button">
-					<input type="submit" name="signin"; value="Sign In">
-				</div>
-			</form>
-			<div class="clear">
-				<p class="para-2">Not have an account
-			        <a href="signup.php"> Sign Up Here </a>
-			    </p>
+	<div class="login">
+		<h2>Sign In</h2>
+		<form action="index.php" method="post">
+			<input type="text" Name="RollNo" placeholder="Student ID" required="">
+			<input type="password" Name="Password" placeholder="Password" required="">
+			<div class="send-button">
+				<input type="submit" name="signin"; value="Sign In">
 			</div>
+		</form>
+		<div class="clear">
+			<p class="para-2">Not have an account
+				<a href="signup.php"> Sign Up Here </a>
+			</p>
 		</div>
 	</div>
-
-	<div class="footer w3layouts agileits">
-		<p> &copy; 2023 Library Member Login. All Rights Reserved </a></p>
-	</div>
+</div>
+    </div>
+<div class="footer">
+       
+            <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024 </b>All rights reserved.
+        </div>
+  
+    
 
 <?php
 if(isset($_POST['signin']))

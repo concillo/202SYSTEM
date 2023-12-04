@@ -13,7 +13,8 @@ if ($_SESSION['RollNo']) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>IT LIBRARY MANAGEMENT SYSTEM</title>
+        <title>LIBRARY MANAGEMENT SYSTEM</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <a href="javascript:history.back()" class="btn btn-secondary" >Back</a>
    </head>
     <body>
@@ -37,7 +38,7 @@ if ($_SESSION['RollNo']) {
         background: url('images/book.jpg') no-repeat;
         background-size: cover;
         background-position: center;
-        padding:50px;
+        padding:8px;
     }
 
     .content {
@@ -45,19 +46,29 @@ if ($_SESSION['RollNo']) {
         padding: 20px;
 
     }
+  
     .module {
-           
-            border-radius: 8px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-            margin:100px;
-            margin-top: 4px;
+   background-color:white;
+    border-collapse: collapse;
+    margin-top: 2px;
+    overflow-x: auto;
+    margin-top:30px;
+    margin-right: 200px;
+    margin-left:200px;
+        
         }
 
         .module-head {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
+            background-color:purple;
+            background-size: cover;
+            background-position: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
             text-align:center;
+        }
+
+        .module-head h3 {
+            margin: 0;
         }
 
         .module-body {
@@ -66,36 +77,36 @@ if ($_SESSION['RollNo']) {
         }
 
         .form-horizontal .control-group {
-            margin-bottom: 10px;
-            margin-top:15px;
+            margin-bottom: 15px;
         }
 
-        .form-horizontal label {
+        .form-horizontal .control-label {
+            width: 150px;
+            display: inline-block;
             font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
         }
+        
 
         .form-horizontal .controls {
-            margin-right: 120px;
-            text-align: right;
+            margin-top:5px;
+            margin-left: 150px;
+        
         }
 
-        .form-horizontal input {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 5px solid #ccc;
-            border-radius: 4px;
+        .form-horizontal input.span8 {
+            width: 30%;
+            height:35px;
+            background:white;
+            text-align:center;
         }
-
         .form-horizontal button {
-            background-color: #4CAF50;
+            background-color:blue;
             color: white;
             padding: 10px 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-left: 85%;
         }
 
         .form-horizontal button:hover {
@@ -103,7 +114,7 @@ if ($_SESSION['RollNo']) {
         }
         .footer{
             text-align: center;
-            padding: 30px;
+         margin-top:300px;
         }
  
         
@@ -121,12 +132,31 @@ if ($_SESSION['RollNo']) {
                                     <br >
 
                                     <form class="form-horizontal row-fluid" action="message.php" method="post">
-                                        <div class="control-group">
-                                            <label class="control-label" for="Rollno"><b>Receiver Roll No:</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="RollNo" name="RollNo" placeholder="RollNo" class="span8" required>
-                                            </div>
-                                        </div>
+
+
+
+                                    <div class="control-group">
+    <label class="control-label" for="ReceiverRollNo"><b>Receiver Roll No:</b></label>
+    <div class="controls">
+        <select id="ReceiverRollNo" name="ReceiverRollNo" class="form-control" required>
+            <!-- Add the following option for default or empty selection -->
+            <option value="" selected disabled>Select Receiver Roll No</option>
+
+            <?php
+            // Your database connection and query to fetch roll numbers
+            $sql = "SELECT RollNo FROM user";
+            $result = $conn->query($sql);
+
+            // Loop through the result set and generate options
+            while ($row = $result->fetch_assoc()) {
+                $rollNo = $row['RollNo'];
+                echo "<option value=\"$rollNo\">$rollNo</option>";
+            }
+            ?>
+        </select>
+    </div>
+</div>
+
                                         <div class="control-group">
                                             <label class="control-label" for="Message"><b>Message:</b></label>
                                             <div class="controls">
@@ -149,23 +179,15 @@ if ($_SESSION['RollNo']) {
                     <!--/.span9-->
                 </div>
             </div>
-            <!--/.container-->
+          
+            <div class="footer">
+        <div class="container">
+            <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024 </b>All rights reserved.
         </div>
-<div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
-            </div>
-        </div>
+    </div>
+    
         
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
-
+    
 <?php
 if(isset($_POST['submit']))
 {

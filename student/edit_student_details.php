@@ -75,7 +75,7 @@ require('dbconn.php');
         text-align: center;
         padding: 30px;
         background-color: #a7c0cd; /* Pastel blue footer background */
-        color: #ffffff;
+        color:grey;
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -179,19 +179,10 @@ require('dbconn.php');
         </div>
 <div class="footer">
             <div class="container">
-                <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
+                <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024</b>All rights reserved.
             </div>
         </div>
-        
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
-
+     
 <?php
 if (isset($_POST['submit'])) {
     // Other form field values

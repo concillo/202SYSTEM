@@ -12,110 +12,104 @@ if ($_SESSION['RollNo']) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>IT LIBRARY MANAGEMENT SYSTEM</title>
+        <title>LIBRARY MANAGEMENT SYSTEM</title>
         <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
    </head>
     <body>
       
-                        <style>
-   body { font-family: 'Roboto', sans-serif;
-        background: url('images/book.jpg') no-repeat;
-        background-size: cover;
-        background-position: center;
-       padding:30px;
-    }
-
-    .wrapper {
-        display: flex;
-    }
-
- 
-
-    .content {
-        flex-grow: 1;
-        padding: 20px;
-    }
-        
-    .table {
-        width: 100%;
-            border-collapse: collapse;
-            margin-top: 2px;
-            overflow-x: auto;
-          margin-top:30px;
-        }
-
-        .table th,
-        .table td {
-            border: 1px solid #5cb85c;
-            padding: 12px;
-            text-align: left;
-        }
-
-        .table th {
-            background-color: #5cb85c;
-            color: #fff;
-        }
-
-        .table tbody tr:nth-child(even) {
-            background-color: #d9edf7;
-        }
-
-        .table tbody tr:hover {
-            background-color: #bce8f1;
-        }
-
-        .btn {
-            padding: 8px 12px;
-            font-size: 14px;
-            cursor: pointer;
-            background-color: #5bc0de;
-            color: #fff;
-            border: 1px solid #46b8da;
-            border-radius: 4px;
-            margin-right:50px;
-            margin-top:40px;
-        
-            
-
-        }
-
-        .btn:hover {
-            background-color: #46b8da;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 30px;
-            
-            color: #black;
-        }
-
-
-
-        .span9 {
-       
-        margin-top:60px;
-        margin-bottom:50px;
-    }
-
-.control-label{
-    margin-top:100px;
-    margin-bottom:500px;
-}
-</style>
-
-                    <!--/.span3-->
-
-                    <div class="span9">
-                        <form class="form-horizontal row-fluid" action="current.php" method="post">
-                                        <div class="control-group">
-                                            <label class="control-label" for="Search"><b>Search:</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="title" name="title" placeholder="Enter Roll No of Student/Book Name/Book Id." class="span8" required>
-                                                <button type="submit" name="submit"class="btn">Search</button>
-                                            </div>
-                                        </div>
-                                    </form>
+    <style>
+  
+  body {
+  
+  background: url('images/book.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding:8px;
+  }
+  
+  
+  .table {
+  width: 100%;
+      border-collapse: collapse;
+      margin-top: 2px;
+      overflow-x: auto;
+    margin-top:30px;
+    padding:50px;
+  }
+  
+  .table th,
+  .table td {
+      border: 1px solid #5cb85c;
+      padding: 12px;
+      text-align: left;
+      border-color: black
+  }
+  
+  .table th {
+      background-color:lightblue;
+      background-size: cover;
+      background-position: center;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      text-align:center;
+  }
+  
+  .table tbody tr:nth-child(even) {
+      background-color: #d9edf7;
+  }
+  
+  .table tbody tr:hover {
+      background-color: #bce8f1;
+  }
+  .btn {
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #5bc0de;
+      color: #fff;
+      border: 1px solid #46b8da;
+      border-radius: 4px;
+      margin-right:50px;
+      margin-top:50px;
+  
+      
+  
+  }
+  
+  .btn:hover {
+      background-color: #46b8da;
+  }
+  
+  .container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  }
+  .header{
+  margin-top:50px;
+  
+  }
+  .footer{
+      text-align: center;
+      padding: 80px;
+      margin-top:100px;
+      color:darkgrey;
+  }
+  
+  </style>
+  
+    
+<div class="span9">
+<form class="form-horizontal row-fluid" action="student.php" method="post">
+    <div class="control-group" style="margin-left: 1000px; margin-right: 10px;">
+        <div class="controls custom-controls">
+            <input type="text" id="title" name="title" placeholder="Enter Name/Roll No of Student" class="span8" style="width: 60%; padding: 10px;" required>
+            <button type="submit" name="submit" class="btn btn-primary" style="padding: 10px;">Search</button>
+        </div>
+    </div>
+</form>
                                     <br>
                                     <?php
 
@@ -187,26 +181,16 @@ if ($_SESSION['RollNo']) {
                                 </table>
                     </div>
 
-                    <!--/.span9-->
-                </div>
-            </div>
-            <!--/.container-->
+           
+
+
+
+            <div class="footer">
+<b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024 </b>All rights reserved.
         </div>
-<div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
-            </div>
-        </div>
+    </div>
+    
         
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
-      
     </body>
 
 </html>

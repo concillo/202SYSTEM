@@ -12,7 +12,7 @@ if ($_SESSION['RollNo']) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>IT LIBRARY MANAGEMENT SYSTEM</title>
+        <title>LIBRARY MANAGEMENT SYSTEM</title>
    </head>
     <body>
         <style>
@@ -100,6 +100,7 @@ if ($_SESSION['RollNo']) {
     .content {
         flex-grow: 1;
         padding: 20px;
+        color:darkgrey;
     }
 </style>
        <div class="span9">
@@ -120,22 +121,13 @@ if ($_SESSION['RollNo']) {
                 </div>
             </div>
             <!--/.container-->
+            <div class="footer">
+        <div class="container">
+            <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024 </b>All rights reserved.
         </div>
-<div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
-            </div>
-        </div>
-        
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
-      
+    </div>
+    
+       
     </body>
 
 </html>

@@ -12,20 +12,19 @@ if ($_SESSION['RollNo']) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>IT LIBRARY MANAGEMENT SYSTEM</title>
+        <title>LIBRARY MANAGEMENT SYSTEM</title>
         <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
    </head>
     <body>
         <style>
     
-    body {font-family: 'Roboto', sans-serif;
-            background: url('images/book.jpg') no-repeat;
-            background-size: cover;
-            background-position: center;
-            font-family: 'Roboto', sans-serif;
-            padding:20px;
-        }
+    body {
 
+background: url('images/book.jpg') no-repeat;
+background-size: cover;
+background-position: center;
+padding:8px;
+}
 
     .wrapper {
         display: flex;
@@ -47,13 +46,12 @@ if ($_SESSION['RollNo']) {
             color: #fff; /* Set the primary button text color */
         }
 
-        .footer {
-            text-align: center;
-            padding: 81px;
-            
-            color: #black;
-        }
+        .footer{
+    text-align: center;
+    padding: 80px;
+    margin-top:100px;
 
+}
        .btn {
             padding: 8px 12px;
             font-size: 14px;
@@ -67,63 +65,92 @@ if ($_SESSION['RollNo']) {
         .btn:hover {
             background-color: #46b8da;
         }
+        .module-body {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Style for the information displayed */
+        .user-info {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the heading (Name, Category, etc.) */
+        .info-heading {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 5px;
+        }
+        .content {
+        flex-grow: 1;
+        padding: 20px;
+
+    }
+  
+    .module {
+    
+    border-collapse: collapse;
+    margin-top: 2px;
+    overflow-x: auto;
+    padding:100px;
+    text-align: center;
         
+        }
+
+        .module-head {
+            background-color:lightblue;
+            background-size: cover;
+            background-position: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align:center;
+        }
+
+        .module-head h3 {
+            margin: 0;
+        }
+
+        .module-body {
+            padding: 10px;
+            
+        }
 </style>
 
-                    
-    <div class="span9">
-                        <div class="content">
-
-                        <div class="module">
-                            <div class="module-head">
-                                <h3>Student Details</h3>
-                            </div>
-                            <div class="module-body">
-                        <?php
-                            $rno=$_GET['id'];
-                            $sql="select * from LMS.user where RollNo='$rno'";
-                            $result=$conn->query($sql);
-                            $row=$result->fetch_assoc();    
+ <div class="module">
+    <div class="module-head"><h3>Student Details</h3></div>
+        <div class="module-body">
+            <?php
+                $rno=$_GET['id'];
+                $sql="select * from LMS.user where RollNo='$rno'";
+                $result=$conn->query($sql);
+                $row=$result->fetch_assoc();    
                             
-                                $name=$row['Name'];
-                                $category=$row['Category'];
-                                $email=$row['EmailId'];
-                                $mobno=$row['MobNo'];
+                $name=$row['Name'];
+                $category=$row['Category'];
+                $email=$row['EmailId'];
+                $mobno=$row['MobNo'];
 
-
-                                echo "<b><u>Name:</u></b> ".$name."<br><br>";
-                                echo "<b><u>Category:</u></b> ".$category."<br><br>";
-                                echo "<b><u>Roll No:</u></b> ".$rno."<br><br>";
-                                echo "<b><u>Email Id:</u></b> ".$email."<br><br>";
-                                echo "<b><u>Mobile No:</u></b> ".$mobno."<br><br>"; 
-                            ?>
-                            
-                        <a href="student.php" class="btn btn-primary">Go Back</a>                             
+                echo "<b><u>Name:</u></b> ".$name."<br><br>";
+                echo "<b><u>Category:</u></b> ".$category."<br><br>";
+                echo "<b><u>Roll No:</u></b> ".$rno."<br><br>";
+                echo "<b><u>Email Id:</u></b> ".$email."<br><br>";
+                echo "<b><u>Mobile No:</u></b> ".$mobno."<br><br>"; 
+            ?>               
                                </div>
                            </div>
                         </div>
-                    </div>
-                    <!--/.span9-->
+                    
 
-                </div>
-            </div>
-            <!--/.container-->
-        </div>
-<div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
-            </div>
-        </div>
+    <div class="footer"> <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024 </b>All rights reserved.</div>
+
+    
         
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
-      
+  
     </body>
 
 </html>

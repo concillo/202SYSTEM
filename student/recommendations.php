@@ -16,131 +16,107 @@ if ($_SESSION['RollNo']) {
         <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
     </head>
     <body>
-        <style>
- 
-    .wrapper {
-        display: flex;
-        width: 90%;
-    }
-
-    .container {
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    .sidebar {
-        background-color: #343a40;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        min-height: 50px;
+    <style>
+   .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #5bc0de;
         color: #fff;
-    }
+        border: 1px solid #46b8da;
+        border-radius: 4px;
+        }
 
-    .sidebar a {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .sidebar a:hover {
-        color: #f8f9fa;
-    }
-
-    .sidebar ul {
-        list-style: none;
-        padding-left: 0;
-
-    }
-
-    .sidebar li {
-        padding: 8px 15px;
-        border-bottom: 1px solid #495057;
-    }
-
-    .sidebar li.active {
-        background-color: #007bff;
-    }
-
-    .sidebar li.active a {
-        color: #f8f9fa;
+    .btn:hover {
+        background-color: #46b8da;
+        }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: url('images/book.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding:8px;
     }
 
     .content {
         flex-grow: 1;
         padding: 20px;
+
     }
-    .footer{
-        text-align: center;
-        padding: 30px;
-    }
-    body {
-        font-family: 'Roboto', sans-serif;
-        background: url('images/book.jpg') no-repeat;
-        background-size: cover;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+  
+    .module {
+    
+    border-collapse: collapse;
+    margin-top: 2px;
+    overflow-x: auto;
+    margin-top:30px;
+    margin-right: 200px;
+    margin-left:200px;
+        
         }
 
-        .form-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .module-head {
+            background-color:lightblue;
+            background-size: cover;
+            background-position: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align:center;
+        }
+
+        .module-head h3 {
+            margin: 0;
+        }
+
+        .module-body {
+            padding: 10px;
+            
         }
 
         .form-horizontal .control-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .form-horizontal label {
+        .form-horizontal .control-label {
+            width: 150px;
+            display: inline-block;
             font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
         }
+        
 
         .form-horizontal .controls {
-            margin-left: 120px;
+            margin-top:5px;
+            margin-left: 150px;
+        
         }
 
-        .form-horizontal input {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        .form-horizontal input.span8 {
+            width: 30%;
+            height:35px;
+            background:lightgrey;
+            text-align:center;
         }
-
         .form-horizontal button {
-            background-color: #4CAF50;
+            background-color:blue;
             color: white;
-            padding: 10px 15px;
+            padding: 10px 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-left: 85%;
         }
 
         .form-horizontal button:hover {
             background-color: #45a049;
         }
-        
-.footer{
-    color:black;
-    margin-top:450px;
-    text-align:center;
-}
-    </style>
-       
-                    
-                  
-                        <div class="module">
+        .footer{
+            text-align: center;
+         margin-top:300px;
+         color:grey;
+        }
+</style>
+
+   <div class="module">
                             <div class="module-head">
                                 <h3>Reccomend a Book</h3>
                             </div>
@@ -169,34 +145,13 @@ if ($_SESSION['RollNo']) {
                                                 <button type="submit" name="submit"class="btn">Submit Recommendation</button>
                                             </div>
                                         </div>
-                                    </form>
-                            </div>
-                        </div>
+                                   
 
                         
                         
-                    </div><!--/.content-->
-                </div>
-
-                    <!--/.span9-->
-                </div>
-            </div>
-            <!--/.container-->
-        </div>
-<div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
-            </div>
-        </div>
-        
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
+                
+         
+      
 
 <?php
 if(isset($_POST['submit']))
@@ -221,6 +176,18 @@ echo "<script type='text/javascript'>alert('Error')</script>";
     
 }
 ?> 
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+        <div class="container">
+            <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024</b>All rights reserved.
+        </div>
+    </div>
 
     </body>
 

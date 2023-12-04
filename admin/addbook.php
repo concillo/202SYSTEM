@@ -12,39 +12,45 @@ if ($_SESSION['RollNo']) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>IT LIBRARY MANAGEMENT SYSTEM</title>
+        <title>LIBRARY MANAGEMENT SYSTEM</title>
         <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
    </head>
 
 <body>
    
 <style>
-    body { 
-        font-family: 'Roboto', sans-serif;
-        background: url('images/book.jpg') no-repeat;
-        background-size: cover;
-        background-position: center;
-        padding:20px;
-    }
+    body {
+
+background: url('images/book.jpg') no-repeat;
+background-size: cover;
+background-position: center;
+padding:8px;
+}
   
 
     .content {
         flex-grow: 1;
         padding: 30px;
     }
-        
+
+      
 
         .module {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
+         
+    border-collapse: collapse;
+overflow-x: auto;
+ 
+  margin-top:30px;
+margin-bottom:30px;
+margin-right:100px;
+margin-left:100px;
+        
+}
         .module-head {
-            background-color: #f2f2f2;
-            padding: 10px;
+            background-color:lightblue;
+            background-size: cover;
+            background-position: center;
+            padding: 15px;
             border-bottom: 1px solid #ddd;
             text-align:center;
     }
@@ -55,7 +61,7 @@ if ($_SESSION['RollNo']) {
         }
 
         .module-body {
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .form-horizontal .control-group {
@@ -67,15 +73,34 @@ if ($_SESSION['RollNo']) {
             display: inline-block;
             font-weight: bold;
         }
+        
 
         .form-horizontal .controls {
-            margin-left: 170px;
+            margin-top:5px;
+            margin-left: 150px;
+        
         }
 
         .form-horizontal input.span8 {
             width: 30%;
+            height:35px;
+            background:lightgrey;
+            text-align:center;
         }
 
+        .form-horizontal button {
+            background-color:blue;
+            color: white;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 85%;
+        }
+
+        .form-horizontal button:hover {
+            background-color: #45a049;
+        }
         .btn {
             padding: 10px 12px;
             font-size: 14px;
@@ -90,22 +115,14 @@ if ($_SESSION['RollNo']) {
         .btn:hover {
             background-color: #46b8da;
         }
-        .span9 {
-       
-       margin-top:10px;
-       margin-bottom:100px;
-       margin-right:100px;
-       margin-left:100px;
-   }
         
+
      .footer{
     text-align:center;
-    color:#black;
-    margin-bottom:5px;
-
-}
-   
-    </style>
+    color:darkgrey;
+    margin-top:30px;
+      }
+</style>
 
 
                     
@@ -113,7 +130,7 @@ if ($_SESSION['RollNo']) {
     <div class="content">
         <div class="module">
             <div class="module-head">
-                <h3>Add Book</h3>
+                <h3>ADD BOOK</h3>
 </div>
     <div class="module-body"><br >
         <form class="form-horizontal row-fluid" action="addbook.php" method="post">
@@ -152,19 +169,21 @@ if ($_SESSION['RollNo']) {
                                         
 
         <div class="control-group">
-            <div class="controls">
+            <div class="controls" >
                 <button type="submit" name="submit"class="btn">Add Book</button>
     </div>
 </div>
                              
-</div> </div>
-            <div class="footer">
-            <div class="container">
-                    <b class="copyright">&copy; 2023 Library Management System </b>All rights reserved.
-        </div>
-  
-        
-     
+</div>
+</div>
+   
+
+
+
+<div class="footer">
+       <b class="copyright">&copy; LMS by Concillo Group FDS A.Y.2023-2024 </b>All rights reserved.
+</div>
+   
 
     
 <?php
